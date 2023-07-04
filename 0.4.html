@@ -1,0 +1,20 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+    <pre class="mermaid">
+      sequenceDiagram
+
+        Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+        activate Server
+        Server-->>Browser: HTTP status code 302
+        deactivate Server
+
+        Note right of Browser: This is a URL redirect, with which the server asks the browser to do a new HTTP GET request to the address defined in the header's Location.
+    </pre>
+  </body>
+</html>

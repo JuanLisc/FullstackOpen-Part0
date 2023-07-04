@@ -1,0 +1,22 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+    <pre class="mermaid">
+      sequenceDiagram
+
+        Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+        activate Server
+        Note right of Browser: The Content-Type header of the request tells the server that the included data is represented in JSON format.
+
+        Server-->>Browser: {"message":"note created"}
+        deactivate Server
+
+        Note right of Browser: The server responds with status code 201 created. This time the server does not ask for a redirect, the browser stays on the same page, and it sends no further HTTP requests.
+    </pre>
+  </body>
+</html>
